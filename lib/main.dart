@@ -61,6 +61,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _resetCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -110,6 +121,16 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+      persistentFooterButtons: <Widget>[
+        Center(
+          child: RaisedButton(
+            child: const Text('Reset'),
+            color: Colors.red,
+            textColor: Colors.white,
+            onPressed: _resetCounter,
+          ),
+        ),
+      ],
     );
   }
 }
